@@ -1,0 +1,21 @@
+PUT _index_template/linux-auth
+{
+  "index_patterns": ["*auth*"],
+  "template": {
+    
+    "mappings": {
+      "properties": {
+        "geoip"  : {
+          "dynamic": true,
+          "properties" : {
+            "ip": { "type": "ip" },
+            "location" : { "type" : "geo_point" },
+            "latitude" : { "type" : "half_float" },
+            "longitude" : { "type" : "half_float" }
+          }
+        }
+      }
+  }
+  }
+  
+}
